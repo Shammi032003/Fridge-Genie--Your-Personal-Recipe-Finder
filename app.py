@@ -8,16 +8,48 @@ st.markdown(
     f"""
     <style>
     .stApp {{
-        background-image: url("https://4kwallpapers.com/images/wallpapers/ios-13-stock-ipados-dark-green-black-background-amoled-ipad-2560x1440-794.jpg");
+        background-image: url("https://images.unsplash.com/photo-1490645935967-10de6ba17061");
         background-attachment: fixed;
         background-size: cover;
         color: white;
+    }}
+    .blur-box {{
+        background: rgba(290, 378, 289, 0.8);
+        backdrop-filter: blur(90px); /* Increase the blur effect */
+        -webkit-backdrop-filter: blur(90px); /* Increase the blur effect */
+        border-radius: 15px;
+        padding: 30px;
+        max-width: 100%;
+        width: 100%;
+        margin: auto;
+        margin-top: 50px;
+        color: black;
+        overflow: auto; /* Allow content to overflow and enable scrolling */
+        height: 100vh; /* Set the height to the full viewport height */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        position: absolute; /* Position the blur box absolutely */
+        top: 90%; /* Position the blur box at the center of the page */
+        transform: translateY(-40%); /* Move the blur box up by half its height */
+    }}
+    .stTextInput > div > div > input, .stSelectbox > div > div {{
+        background: rgba(255, 255, 255, 0.8);
+        border-radius: 5px;
+    }}
+    .stButton > button {{
+        background-color: #4CAF50;
+        color: white;
+        border-radius: 5px;
     }}
     </style>
     """,
     unsafe_allow_html=True
 )
 
+st.markdown('<div class="blur-box">', unsafe_allow_html=True)
 st.title("Fridge Genie: Your Personal Recipe Finder")
 
 def get_recipes(ingredients, diet, cuisine, dish_type):
@@ -62,3 +94,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+st.markdown('</div>', unsafe_allow_html=True)
